@@ -7,14 +7,19 @@ const Navbar = () => {
     const { user,setUser } = useContext(UserContext);
 
     return (
-        <>
-            <NavLink to={"/"}>Home</NavLink>
+        <div>
             {user ? (
-                <button onClick={()=>{setUser(false)}}>Cerrar Sesión</button>
+                <>
+                    <NavLink to={"/"}>Home</NavLink>
+                    <button onClick={()=>{setUser(false)}}>Cerrar Sesión</button>
+                </>
             ) : (
+                <>
                 <NavLink to="/login">Login</NavLink>
+                <NavLink to="/register">Register</NavLink>
+                </>
             )}
-        </>
+        </div>
     )
 }
 
