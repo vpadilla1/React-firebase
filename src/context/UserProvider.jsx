@@ -5,29 +5,29 @@ import { auth } from '../utils/firebase';
 
 export const UserContext = createContext();
 
-const UserProvider = ({children}) => {
-    const [user,setUser] = useState(false);
+const UserProvider = ({ children }) => {
+    const [user, setUser] = useState(false);
 
-    useEffect(()=>{
+    useEffect(() => {
         const unsuscribe = onAuthStateChanged(auth, (user) => {
-                console.log(user)
-                if (user) {
-                    const{email,photoURL,displayName,uid} = user
-                    setUser({email,photoURL,displayName,uid})
-                } else {
-                    setUser(null)
-                }
+            console.log(user)
+            if (user) {
+                const { email, photoURL, displayName, uid } = user
+                setUser({ email, photoURL, displayName, uid })
+            } else {
+                setUser(null)
+            }
         })
-        return ()=> unsuscribe()
-    },[])
+        return () => unsuscribe()
+    }, [])
 
-    const registerUser = (email,password)=>createUserWithEmailAndPassword(auth,email,password);
-    
-    const loginUser = (email, passsword)=> signInWithEmailAndPassword(auth,email,passsword)
+    const registerUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 
-    const signOutUser = () =>signOut(auth)
+    const loginUser = (email, passsword) => signInWithEmailAndPassword(auth, email, passsword)
+
+    const signOutUser = () => signOut(auth)
     return (
-        <UserContext.Provider value={{user,setUser, registerUser,loginUser, signOutUser}}>
+        <UserContext.Provider value={{ user, setUser, registerUser, loginUser, signOutUser }}>
             {children}
         </UserContext.Provider>
     )
