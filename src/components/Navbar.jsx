@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { useContext } from 'react'
 import { UserContext } from '../context/UserProvider';
 
@@ -13,7 +13,10 @@ const Navbar = () => {
     }
 
     return (
-        <div>
+        <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
+            <div className="container flex flex-wrap justify-between items-center mx-auto">
+                <Link to={"/"}>Logros Financieros</Link>
+
             {user ? (
                 <>
                     <NavLink to={"/"}>Home |</NavLink>
@@ -25,7 +28,8 @@ const Navbar = () => {
                     <NavLink to="/register">Register |</NavLink>
                 </>
             )}
-        </div>
+            </div>
+        </nav>
     )
 }
 
