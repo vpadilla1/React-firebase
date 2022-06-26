@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { UserContext } from "../context/UserProvider";
 import { erroresFirebase } from "../utils/erroresFirebase.js";
-import FormError from "../components/FormError";
+import FormError from "../components/form/FormError";
 import { formValidate } from './../utils/formValidate';
-import FormInpunt from './../components/FormInpunt';
+import FormInpunt from '../components/form/FormInpunt';
 import Title from './../components/Title';
-import Button from './../components/Button';
+import Button from '../components/form/Button';
 
 const Register = () => {
 
@@ -36,10 +36,11 @@ const Register = () => {
 
     return (
         <>
-            <Title title="Register"/>
+            <div className="m-auto  mt-20 p-4 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700">
             <FormError error={errors.firebase} />
-            <form onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
 
+                    <Title title="Create New Account"/>
                 <FormInpunt
                     type="email"
                     placeholder="Ingresar email"
@@ -54,31 +55,38 @@ const Register = () => {
                 </FormInpunt>
 
                 <FormInpunt
+                    label="Password"
                     type="password"
-                    placeholder="Ingresar password"
+                    placeholder="Password"
                     {...register("password", {
                         minLength,
                         validate: validateTrim
                     })}
-                    label="Ingresar password"
                     error={errors.password}
                 >
                 <FormError error={errors.password} />
                 </FormInpunt>
 
                 <FormInpunt
-                    type="password"
+                        label= "Repeat Password"
+                        type="password"
                     error={errors.repassword}
-                    placeholder="Confirme la password"
+                        placeholder="Repeat Password"
                     {...register("repassword", {
                         validate: validateEquals(getValues),
                     })}
-                    label= "Confirme password"
                 >
                 <FormError error={errors.repassword} />
                 </FormInpunt>
-                <Button type="submit" text="Register" />
-            </form>
+
+                    <Button type="submit" text="Register" />
+
+                    <div className="text-sm  text-center font-medium text-gray-500 dark:text-gray-300">
+                        Already have an account? <Link to="/login" className="text-blue-700 hover:underline dark:text-blue-500">Login</Link>
+                    </div>
+                </form>
+
+            </div>
         </>
     )
 }
