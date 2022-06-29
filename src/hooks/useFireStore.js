@@ -1,7 +1,9 @@
-import { useEffect, useState, } from "react"
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../firebase";
-import { doc } from "firebase/firestore/lite";
+import { useState, } from "react"
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { auth, db } from "../firebase";
+import {naoid} from 'naoid'
+
+
 
 export const useFirestore = () => {
 
@@ -9,15 +11,17 @@ export const useFirestore = () => {
     const [error, setError] = useState()
     const [loading, setLoading] = useState(false)
 
-    useEffect(() => {
-        console.log("getMetas")
-        getMetas()
-    }, []);
+    
+    const userUID = auth.currentUser.uid;
 
     const getMetas = async () => {
+       
         try {
             setLoading(true)
-            const queryMetas = await getDocs(collection(db, "metas"));
+            const dataRet = collection(db, "metas")   
+            const q = query(dataRet, where("uid", "==", userUID));
+
+            const queryMetas = await getDocs(q);
             const dataDB = queryMetas.docs.map((doc) => doc.data())
             setData(dataDB);
         } catch (error) {
@@ -27,10 +31,23 @@ export const useFirestore = () => {
                 setLoading(false)
         }
     } 
+
+    const addData = async (name,cash, date) => {
+        try {
+            setLoading(true)
+            manoid(6)
+        } catch (error) {
+            setError(error.message);
+        } finally {
+            setLoading(false)
+        }
+    }
     
     return {
         data,
         error,
-        loading
+        loading,
+        getMetas,
+        addData
         }
 }

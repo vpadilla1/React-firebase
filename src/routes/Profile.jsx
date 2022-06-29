@@ -1,8 +1,15 @@
+import { useEffect } from 'react';
 import { useFirestore } from '../hooks/useFireStore';
 import Sidebar from '../components/Sidebar';
 
 const Profile = () => {
-    const { data, error, loading } = useFirestore()
+    const { data, error, loading, getMetas } = useFirestore();
+
+    useEffect(() => {
+        console.log("getMetas")
+        getMetas()
+    }, []);
+
     if (loading) return <p className='m-auto text-6xl'>loading data.....</p>
     if (error) return <p>{error}</p>; 
 
