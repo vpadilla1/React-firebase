@@ -71,6 +71,17 @@ const Sidebar = () => {
                             </span>
                         </li>
                     </NavLink>
+                    <NavLink to="/newSavings">
+                        <li className="flex  rounded-md p-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-black text-base items-center gap-x-4 bg-light-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-9 w-10 fill-dark-purple" viewBox="0 0 20 20" fill="currentColor">
+                                <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                            </svg>
+                            <span className={`${!open && "hidden"} origin-left duration-200`}>
+
+                                New Savings
+                            </span>
+                        </li>
+                    </NavLink>
                 <li className="flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-black text-base items-center gap-x-4" onClick={handleLogout}>
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-9 w-10 fill-dark-purple" viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clipRule="evenodd" />

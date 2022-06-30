@@ -8,6 +8,7 @@ import Register from './routes/Register'
 import Profile from './routes/Profile'
 import NoFound from './routes/NoFound';
 import Goals from './routes/goals'
+import NewSavings from './routes/NewSavings';
 
 import LayoutForm from './components/layout/LayoutForm'
 import RequireAuth from './components/layout/RequireAuth'
@@ -41,6 +42,7 @@ const App = () => {
           <Route index  element={<Home />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/goals' element={<Goals />} />
+          <Route path='/newSavings' element={<NewSavings />} />
         </Route>
 
         <Route path='/' element={<LayoutForm />}>

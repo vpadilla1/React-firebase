@@ -7,7 +7,7 @@ import UserProvider from './context/UserProvider'
 import 'flowbite';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <div className='flex h-screen'>
+    <div className='flex h-screen '>
     
   <UserProvider>
       <BrowserRouter>

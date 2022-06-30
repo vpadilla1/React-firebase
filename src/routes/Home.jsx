@@ -1,5 +1,4 @@
 import Sidebar from "../components/Sidebar";
-import { useFirestore } from "../hooks/useFireStore";
 import "../Styles.css";
 
 const Home = () => {
@@ -13,22 +12,22 @@ const Home = () => {
 
             <div className="flex justify-evenly h-auto  pr-5 pt-5  m-auto  text-center">
 
-                <div className=" w-30 h-40 bg-white rounded-lg border border-gray-200 p-5 ">
+                <div className="shadow-2xl w-30 h-40 bg-white rounded-lg border border-gray-200 p-5 ">
                     <p className="text-sm text-gray-500">4 Millones</p>
                     <h1 className=" mt-7 ">$1.500.000</h1>
                 </div>
 
-                <div className=" w-30 h-40 bg-white rounded-lg border border-gray-200 p-5 ">
+                <div className="shadow-2xl w-30 h-40 bg-white rounded-lg border border-gray-200 p-5 ">
                     <p className=" text-sm text-gray-500">4 Millones</p>
                     <h1 className="  mt-7 ">$1.500.000</h1>
                 </div>
 
-                <div className=" w-30 h-40 bg-white rounded-lg border border-gray-200 p-5 ">
+                <div className="shadow-2xl w-30 h-40 bg-white rounded-lg border border-gray-200 p-5 ">
                     <p className="text-sm text-gray-500">4 Millones</p>
                     <h1 className=" mt-7 ">$1.500.000</h1>
                 </div>
 
-                <div className=" w-30 h-40 bg-white rounded-lg border border-gray-200 p-5 ">
+                <div className="shadow-2xl w-30 h-40 bg-white rounded-lg border border-gray-200 p-5 ">
                     <p className="text-sm text-gray-500">4 Millones</p>
                     <h1 className=" mt-7 ">$1.500.000</h1>
                 </div>
@@ -37,7 +36,6 @@ const Home = () => {
 
         </div>
 
-       
 
 
     </>
