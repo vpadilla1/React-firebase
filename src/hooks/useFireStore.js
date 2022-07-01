@@ -1,7 +1,6 @@
-import { useState, } from "react"
+import { useState } from "react"
 import { collection, deleteDoc, doc, getDocs, query, setDoc, updateDoc, where } from "firebase/firestore";
 import { auth, db } from "../firebase";
-
 
 
 
@@ -28,7 +27,6 @@ export const useFirestore = () => {
             const dataDB = queryMetas.docs.map((doc) => doc.data())
             setData(dataDB);
         } catch (error) {
-                
                 setError(error.message)
         } finally {
             setLoading(prev => ({ ...prev, getMetas: false }))
@@ -53,7 +51,6 @@ export const useFirestore = () => {
             await setDoc(docRef, newData)
             setData([...data,newData])
         } catch (error) {
-            console.log(error)
             setError(error.message);
         } finally {
             setLoading(prev => ({ ...prev, addData: false }))
@@ -67,7 +64,6 @@ export const useFirestore = () => {
             await deleteDoc(docRef);
             setData(data.filter((item) => item.id !== id));
         } catch (error) {
-            console.log(error)
             setError(error.message);
         } finally {
             setLoading(prev => ({ ...prev, deleDAta: false }))
@@ -99,7 +95,7 @@ export const useFirestore = () => {
                 )
             ); 
         } catch (error) {
-            
+            setError(error.message);
         } finally {
             setLoading(prev => ({ ...prev, updateData: false }))
         }
